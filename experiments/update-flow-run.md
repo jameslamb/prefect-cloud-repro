@@ -1,8 +1,6 @@
-# prefect-cloud-repro
+# update-flow-run
 
-This is a personal repository used to store random notes from my attempts to create good reproducible examples when reporting issues with [Prefect Cloud](https://www.prefect.io/cloud/).
-
-You should probably never use this code for anything.
+This file contains steps to try to replicate what I thought might be a bug in Prefect Cloud's behavior when you register a flow with `KubernetesJobEnvironment` and then later register a new version that has switched to `KubernetesRun`.
 
 1. Fill out `.env` with the following.
 
@@ -290,11 +288,6 @@ client.graphql(query)
 ```
 
 You should see that the flow run has now switched back from run_config to environment. Ok, still doing what we'd expect.
-
-```json
-{
-    "data": {
-        "flow_run_by_pk": {
             "id": "98cf5520-8d5b-45ae-af9c-2d18f8675f5a",
             "flow": {
                 "id": "2053cb44-d1eb-4579-9ff1-4e59f2198163",
@@ -509,3 +502,8 @@ You should see that the flow run has a run_config with a `KubernetesRun`, and `f
     }
 }
 ```
+
+```json
+{
+    "data": {
+        "flow_run_by_pk": {
